@@ -198,8 +198,10 @@ function sahneCiz(ad, hareket) {
 const kaydir = document.getElementById("kaydir"), noktalar = document.getElementById("noktalar");
 KARELER.forEach((k, i) => {
   const d = document.createElement("div"); d.className = "kare";
-  d.innerHTML = (k.resim ? `<img class="foto piksel" src="${k.resim}" alt="${k.baslik}" loading="lazy">` : sahneCiz(k.sahne, k.hareket))
+  d.innerHTML = (k.resim ? `<img class="foto piksel" src="${k.resim}" alt="${k.baslik}" loading="lazy"><span class="buyut-ipucu">Büyütmek için dokun</span>` : sahneCiz(k.sahne, k.hareket))
     + `<div class="aciklama"><h3 class="baslikfont">${k.baslik}</h3><p>${k.yazi}</p></div>`;
+  const foto = d.querySelector("img.foto");
+  if (foto) foto.addEventListener("click", () => buyut(k));
   kaydir.appendChild(d);
   const n = document.createElement("button"); n.setAttribute("aria-label", (i + 1) + ". kare");
   n.onclick = () => { git(i); bekle(); }; noktalar.appendChild(n);
@@ -221,6 +223,20 @@ kaydir.addEventListener("touchend", e => {
   if (Math.abs(dx) > 40) { git(sira + (dx < 0 ? 1 : -1)); bekle(); }
 });
 git(0); bekle();
+
+// dokununca tam ekran (resmin tamamı)
+const buyukKutu = document.createElement("div"); buyukKutu.className = "buyuk";
+buyukKutu.innerHTML = `<button aria-label="Kapat">✕</button><img alt=""><p class="baslikfont"></p><p class="dondur">Daha büyük görmek için telefonu yan çevir</p>`;
+document.body.appendChild(buyukKutu);
+function buyut(k) {
+  clearInterval(zamanlayici);
+  buyukKutu.querySelector("img").src = k.resim; buyukKutu.querySelector("img").alt = k.baslik;
+  buyukKutu.querySelector("p").textContent = k.baslik;
+  buyukKutu.classList.add("acik");
+}
+function kucult() { buyukKutu.classList.remove("acik"); bekle(); }
+buyukKutu.addEventListener("click", kucult);
+addEventListener("keydown", e => { if (e.key === "Escape" && buyukKutu.classList.contains("acik")) kucult(); });
 
 // ---------------------------------------------------------------- yıldızlar
 const tuval = document.getElementById("yildizlar"), c = tuval.getContext("2d");

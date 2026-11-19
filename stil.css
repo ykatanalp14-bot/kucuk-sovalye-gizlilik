@@ -221,3 +221,30 @@ footer a:hover { color: var(--altin); }
 .ozet { background: linear-gradient(160deg, rgba(127,209,122,.14), rgba(127,209,122,.04)); border: 1px solid rgba(127,209,122,.35);
   border-radius: 16px; padding: 18px 22px; color: var(--metin) !important; }
 .ayrac { border: 0; border-top: 1px solid var(--cizgi); margin: 64px 0; }
+
+/* ---------- kareler: telefonda daha büyük (kenardan kenara, yazı resmin altında) */
+.kare > img.foto { cursor: zoom-in; }
+.buyut-ipucu { display: none; position: absolute; top: 12px; right: 12px; padding: 5px 10px; border-radius: 99px;
+  background: rgba(10,6,16,.65); color: #fff; font-size: 12px; font-weight: 800; pointer-events: none; }
+@media (max-width: 680px) {
+  #kareler .kap { padding: 0; }
+  #kareler h2, #kareler .alt { padding: 0 20px; }
+  .serit { border-radius: 0; border-left: 0; border-right: 0; }
+  .kare { aspect-ratio: auto; display: flex; flex-direction: column; background: var(--gece2); }
+  .kare > img.foto { aspect-ratio: 4 / 3; height: auto; }
+  .kare .aciklama { position: static; background: none; padding: 14px 20px 18px; }
+  .kare .aciklama h3 { font-size: 22px; }
+  .ok { display: none; }
+  .buyut-ipucu { display: block; }
+}
+
+/* ---------- tam ekran büyütme */
+.buyuk { position: fixed; inset: 0; z-index: 100; background: rgba(8,5,14,.94); display: none;
+  align-items: center; justify-content: center; padding: 16px; flex-direction: column; gap: 14px; }
+.buyuk.acik { display: flex; }
+.buyuk img { max-width: 100%; max-height: 80vh; border-radius: 10px; image-rendering: pixelated; box-shadow: var(--golge); }
+.buyuk p { margin: 0; color: var(--soluk); font-size: 14px; text-align: center; }
+.buyuk button { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--cizgi);
+  background: rgba(255,255,255,.08); color: #fff; font-size: 22px; cursor: pointer; }
+.buyuk .dondur { display: none; }
+@media (orientation: portrait) and (max-width: 680px) { .buyuk .dondur { display: block; } }
