@@ -7,7 +7,7 @@
 <meta name="description" content="Küçük Şövalye: Söğütlü Masalı — kaçırılan prensesin izini süren genç şövalye Julian'ın piksel sanatlı macerası. iPhone için.">
 <meta property="og:title" content="Küçük Şövalye: Söğütlü Masalı">
 <meta property="og:description" content="Piksel sanatlı bir şövalye macerası: kılıç, köy hayatı, denizler ve bir ejderhanın ninnisi.">
-<meta property="og:image" content="https://ykatanalp14-bot.github.io/kucuk-sovalye-gizlilik/gorseller/simge.png">
+<meta property="og:image" content="https://ykatanalp14-bot.github.io/kucuk-sovalye-gizlilik/gorseller/kareler/02_liman.webp">
 <meta name="theme-color" content="#1a1226">
 <link rel="icon" href="gorseller/favicon.png">
 <link rel="apple-touch-icon" href="gorseller/apple-touch-icon.png">
@@ -157,15 +157,19 @@
 
 <script>
 // ---------------------------------------------------------------- kayan kareler
-// Oyundan ekran görüntüsü eklenince: { resim: "gorseller/kareler/1.png", baslik: "...", yazi: "..." }
-// "sahne" verilenler resim yerine kodla çizilen küçük bir manzara gösterir.
+// Kareler oyundan (Unity'de F11 + F12, Araçlar → Vitrin). Yeni kare: gorseller/kareler/ içine koy, buraya ekle.
+// { sahne: "koy" | "deniz" | "kul" | "kar" | "kale", hareket: "bekle" | "kos" | "vur" } resim yerine kodla çizilen manzara gösterir.
 const KARELER = [
-  { resim: "gorseller/julian.jpg", baslik: "Julian ile tanış", yazi: "Söğütlü'nün genç şövalyesi. Kılıcını evde unuttuğu bir sabah her şey değişir." },
-  { sahne: "koy", hareket: "bekle", baslik: "Söğütlü Köyü", yazi: "Pazarı, fırını, demircisi ve gölüyle küçük ama canlı bir köy. Her şey burada başlar." },
-  { sahne: "deniz", hareket: "kos", baslik: "Dişler Boğazı", yazi: "Dalgakıran'ın dümenine geç; kayalar, girdaplar ve sisin içinden bir kara yelkenli." },
-  { sahne: "kul", hareket: "vur", baslik: "Kül Adası", yazi: "Yanık bir orman, kızgın çatlaklar ve kalenin avlusunda bekleyen Komutan Demirhan." },
-  { sahne: "kar", hareket: "kos", baslik: "Kuzeyin Yolu", yazi: "Karlı yamaçlar, uçurum kenarları ve fener taşları. Ejderhanın yuvası tepede." },
-  { sahne: "kale", hareket: "bekle", baslik: "Gece Kalesi", yazi: "Kızıl pelerinli nöbetçilerin fenerlerinden saklan, Büyük Saat'in sırrını çöz." }
+  { resim: "gorseller/kareler/02_liman.webp", baslik: "Söğütlü Limanı", yazi: "Gece iskelede fenerler yanar. Dalgakıran demirde, deniz yolculuğunu bekliyor." },
+  { resim: "gorseller/kareler/03_dovus.webp", baslik: "Kılıç ve kalkan", yazi: "Haydutlar ve slime'lar karşısında üç vuruşluk kombolar, mükemmel blok ve karşı saldırı." },
+  { resim: "gorseller/kareler/04_ejderha_golgesi.webp", baslik: "Gökte bir gölge", yazi: "Hikâye bittiğinde bile dünya bitmez: gece köyün üstünden kocaman bir gölge geçer." },
+  { resim: "gorseller/kareler/07_karli_dag.webp", baslik: "Kuzeyin Yolu", yazi: "Karlı yamaçlar, uçurum kenarları ve yol boyunca yakılmayı bekleyen eski fener taşları." },
+  { resim: "gorseller/kareler/08_magara.webp", baslik: "Ejderhanın Mağarası", yazi: "Kalenin altındaki eski ninninin sırrı burada, uyuyan bir ejderhanın yanında saklı." },
+  { resim: "gorseller/kareler/05_deniz.webp", baslik: "Dişler Boğazı", yazi: "Dalgakıran'ın dümenine geç; Kerem yelkende, Stellan pruvada. Kayalara dikkat." },
+  { resim: "gorseller/kareler/06_kul_adasi.webp", baslik: "Kül Adası", yazi: "Yanık topraklarda kızgın çatlaklar alev alır. Doğru anı bekle ya da takla at." },
+  { resim: "gorseller/kareler/09_koy.webp", baslik: "Söğütlü Köyü", yazi: "Pazarı, fırını, demircisi ve deresiyle her şeyin başladığı küçük köy." },
+  { resim: "gorseller/kareler/10_gece_koyu.webp", baslik: "Kış gecesi", yazi: "Kar yağınca köylüler kardan adam yapar, pazar fenerlerin ışığında akşamı karşılar." },
+  { resim: "gorseller/kareler/01_menu.webp", baslik: "Macera seni bekliyor", yazi: "Kayıtların telefonunda durur, istediğin an kaldığın yerden devam edersin." }
 ];
 const SAHNELER = {
   koy:   { gok: "linear-gradient(#8fd3ff,#cfefff 70%)", tepe: ["#7cc070","#5aa055"], zemin: "#4f9a4c", ay: false },

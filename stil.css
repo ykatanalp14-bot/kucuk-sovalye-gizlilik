@@ -106,7 +106,7 @@ section.bolum { padding: 96px 0; position: relative; }
 .karusel { position: relative; max-width: 980px; margin: 0 auto; }
 .serit { overflow: hidden; border-radius: 22px; box-shadow: var(--golge); border: 1px solid var(--cizgi); touch-action: pan-y; }
 .kaydir { display: flex; transition: transform .6s cubic-bezier(.22,.8,.25,1); }
-.kare { flex: 0 0 100%; position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+.kare { flex: 0 0 100%; position: relative; aspect-ratio: 2778 / 1284; overflow: hidden; background: #0d0915; }
 .kare > img.foto { width: 100%; height: 100%; object-fit: cover; display: block; }
 .kare .aciklama {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 28px 22px;
